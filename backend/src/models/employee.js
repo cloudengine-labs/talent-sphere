@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const employeeSchema = new mongoose.Schema({
+const employeeSchema = new Schema({
     name: { type: String, required: true },
     empId: { type: String, required: true, unique: true },
     doj: { type: Date, required: true },
@@ -10,4 +10,4 @@ const employeeSchema = new mongoose.Schema({
     grossSalary: { type: Number, required: true },
 },{ collection: 'employees' });
 
-module.exports = mongoose.model('Employee', employeeSchema);
+export default model('Employee', employeeSchema);

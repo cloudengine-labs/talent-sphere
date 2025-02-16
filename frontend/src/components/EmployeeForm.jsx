@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const EmployeeForm = () => {
     const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const EmployeeForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5001/api/employees/add', {
+            const response = await fetch(`${apiUrl}/api/employees/add`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

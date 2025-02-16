@@ -1,9 +1,11 @@
 # Talent-Sphere Application Documentation
 
 ## Purpose of the Application
+
 Talent-Sphere is a frontend application designed for managing employee information within an organization. It allows users to add new employees and view a list of existing employees. The application provides a user-friendly interface for performing these tasks efficiently.
 
 ## Tech Stack Details
+
 - **Frontend**:
   - React: A JavaScript library for building user interfaces.
   - Tailwind CSS: A utility-first CSS framework for styling.
@@ -19,27 +21,22 @@ Talent-Sphere is a frontend application designed for managing employee informati
 ## How to Run the Application
 
 ### Prerequisites
+
 - Node.js and npm installed on your machine.
 - MongoDB installed and running on your machine.
 
 ### Steps to Run the Application
 
 1. **Clone the Repository**:
+
    ```bash
    git clone https://github.com/your-username/talent-sphere.git
    cd talent-sphere
    ```
 
 2. **Install Dependencies**:
-   Navigate to the 
+Navigate to the frontend and backend directories and install the dependencies.
 
-frontend
-
- and 
-
-backend
-
- directories and install the dependencies.
    ```bash
    cd frontend
    npm install
@@ -48,50 +45,47 @@ backend
    ```
 
 3. **Set Up Environment Variables**:
-   Create a `.env` file in the 
 
-backend
+Create a `.env` file in the backend directory and add the following environment variables:
 
- directory and add the following environment variables:
    ```env
    MONGODB_URI=mongodb://localhost:27017/talent-sphere
    PORT=5001
    ```
 
 4. **Start MongoDB**:
-   Ensure MongoDB is running. You can start MongoDB using the following command:
+Ensure MongoDB is running. You can start MongoDB using the following command:
+
    ```bash
    mongod --dbpath ~/mongodb/data/db
    ```
 
 5. **Start the Backend Server**:
-   Navigate to the 
 
-backend
-
- directory and start the server.
+Navigate to the backend directory and start the server.
    ```bash
    cd backend
    npm start
    ```
 
 6. **Start the Frontend Application**:
-   Navigate to the 
 
-frontend
-
- directory and start the React application.
+Navigate to the frontend directory and start the React application.
    ```bash
    cd frontend
    npm start
    ```
 
 ## How to Start MongoDB
+
 To start MongoDB, ensure you have MongoDB installed on your machine. You can start MongoDB using the following command:
+
 ```bash
 mongod --dbpath ~/mongodb/data/db
 ```
+
 If you encounter any issues with the data directory, create the directory and set the appropriate permissions:
+
 ```bash
 mkdir -p ~/mongodb/data/db
 sudo chown -R `id -un` ~/mongodb/data/db
@@ -125,12 +119,14 @@ The backend server provides the following API endpoints:
 ## How to Add and Verify Details
 
 ### Adding an Employee
+
 1. Navigate to the home screen of the Talent-Sphere application.
 2. Click on the "Add Employee" button.
 3. Fill in the employee details in the form.
 4. Click the "Submit" button to add the employee.
 
 ### Verifying Employee Details
+
 1. Navigate to the home screen of the Talent-Sphere application.
 2. Click on the "View Employees" button.
 3. A list of all employees will be displayed. Verify the details of the newly added employee in the list.

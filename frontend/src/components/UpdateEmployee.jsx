@@ -1,9 +1,10 @@
-// filepath: /Users/gsaravanan/Documents/github/talent-sphere/frontend/src/components/UpdateEmployee.jsx
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const UpdateEmployee = () => {
-    const { id } = useParams();
+    const { id } = useParams(); // This should be the MongoDB ObjectId
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         empId: '',
@@ -15,11 +16,23 @@ const UpdateEmployee = () => {
     });
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/employees/${id}`)
+        console.log('Employee ID:', id); // Debugging: Log the ID
+
+        if (!isValidObjectId(id)) {
+            alert('UI: Invalid employee ID');
+            navigate('/'); // Redirect to home or another page
+            return;
+        }
+
+        fetch(`${apiUrl}/api/employees/${id}`)
             .then(res => res.json())
             .then(data => setFormData(data))
             .catch(err => console.error(err));
-    }, [id]);
+    }, [id, navigate]);
+
+    const isValidObjectId = (id) => {
+        return /^[0-9a-fA-F]{24}$/.test(id);
+    };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,12 +41,18 @@ const UpdateEmployee = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5001/api/employees/update/${id}`, {
+            const response = await fetch(`${apiUrl}/api/employees/update/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-            if (response.ok) alert('Employee updated successfully!');
+            if (response.ok) {
+                alert('Employee updated successfully!');
+                navigate('/'); // Redirect to home or another page
+            } else {
+                const errorData = await response.json();
+                alert(`Error updating employee: ${errorData.message}`);
+            }
         } catch (error) {
             console.error(error);
         }

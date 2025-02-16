@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Backend for Employee Management System",
   "main": "src/app.js",
+  "type": "module",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -14,7 +16,12 @@
     "mongoose": "^6.8.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "@eslint/js": "^9.20.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^15.15.0",
+    "nodemon": "^2.0.20",
+    "typescript-eslint": "^8.24.0"
   },
   "keywords": [
     "employee-management",
