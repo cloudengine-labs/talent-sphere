@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-const apiUrl = process.env.REACT_APP_API_URL;
 
 const EmployeeList = () => {
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [employees, setEmployees] = useState([]);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const EmployeeList = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex flex-col items-center justify-center h-full">
             <h2 className="text-2xl font-bold mb-4">Employee List</h2>
             <ul className="w-full max-w-md bg-white p-6 rounded shadow-md">
                 {employees.map(employee => (

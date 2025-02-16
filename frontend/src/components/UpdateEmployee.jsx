@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-const apiUrl = process.env.REACT_APP_API_URL;
 
 const UpdateEmployee = () => {
+    const apiUrl = process.env.REACT_APP_API_URL;
     const { id } = useParams(); // This should be the MongoDB ObjectId
     const navigate = useNavigate();
     const [formData, setFormData] = useState({

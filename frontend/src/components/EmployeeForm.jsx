@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-const apiUrl = process.env.REACT_APP_API_URL;
 
 const EmployeeForm = () => {
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [formData, setFormData] = useState({
         name: '',
         empId: '',
@@ -31,9 +31,9 @@ const EmployeeForm = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex flex-col items-center justify-center h-full">
             <h2 className="text-2xl font-bold mb-4">Add Employee</h2>
-            <form onSubmit={handleSubmit} className="w-full max-w-sm bg-white p-6 rounded shadow-md">
+            <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-6 rounded shadow-md">
                 <div className="mb-4">
                     <label className="block text-gray-700">Name</label>
                     <input
