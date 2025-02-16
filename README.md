@@ -1,5 +1,7 @@
 # Talent-Sphere Application Documentation
 
+[![Build and Create Docker Images](https://github.com/cloudengine-labs/talent-sphere/actions/workflows/Build-Docker-Image.yaml/badge.svg)](https://github.com/cloudengine-labs/talent-sphere/actions/workflows/Build-Docker-Image.yaml)
+
 ## Purpose of the Application
 
 Talent-Sphere is a frontend application designed for managing employee information within an organization. It allows users to add new employees and view a list of existing employees. The application provides a user-friendly interface for performing these tasks efficiently.
