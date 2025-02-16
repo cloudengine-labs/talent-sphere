@@ -53,29 +53,6 @@ Create a `.env` file in the backend directory and add the following environment 
    PORT=5001
    ```
 
-4. **Start MongoDB**:
-Ensure MongoDB is running. You can start MongoDB using the following command:
-
-   ```bash
-   mongod --dbpath ~/mongodb/data/db
-   ```
-
-5. **Start the Backend Server**:
-
-Navigate to the backend directory and start the server.
-   ```bash
-   cd backend
-   npm start
-   ```
-
-6. **Start the Frontend Application**:
-
-Navigate to the frontend directory and start the React application.
-   ```bash
-   cd frontend
-   npm start
-   ```
-
 ## How to Start MongoDB
 
 To start MongoDB, ensure you have MongoDB installed on your machine. You can start MongoDB using the following command:
@@ -90,6 +67,21 @@ If you encounter any issues with the data directory, create the directory and se
 mkdir -p ~/mongodb/data/db
 sudo chown -R `id -un` ~/mongodb/data/db
 ```
+
+4. **Start the Backend Server**:
+Navigate to the backend directory and start the server.
+   ```bash
+   cd backend
+   npm start
+   ```
+
+5. **Start the Frontend Application**:
+
+Navigate to the frontend directory and start the React application.
+   ```bash
+   cd frontend
+   npm start
+   ```
 
 ## API Endpoints
 The backend server provides the following API endpoints:
@@ -132,3 +124,72 @@ The backend server provides the following API endpoints:
 3. A list of all employees will be displayed. Verify the details of the newly added employee in the list.
 
 By following these steps, you can successfully run the Talent-Sphere application, add new employees, and verify their details.
+
+## How to Build and Run Docker Images
+
+### Prerequisites
+
+- Docker installed on your machine.
+
+### Steps to Build and Run Docker Images
+
+1. **Set Up Environment Variables**:
+
+Ensure you have the necessary environment variables set up in the `.env` files for both the frontend and backend.
+
+#### Frontend `.env` File
+
+Create a `.env` file in the frontend directory with the following content:
+
+   ```env
+   PORT=3000
+   REACT_APP_API_URL=http://localhost:5001
+   ```
+
+#### Backend `.env` File
+
+Create a `.env` file in the backend directory with the following content:
+
+   ```env
+   MONGODB_URI=mongodb://localhost:27017/talent-sphere
+   PORT=5001
+   REACT_APP_API_URL=http://localhost:5001
+   ```
+
+2. **Build and Run Backend Docker Image**:
+
+Navigate to the backend directory and build the Docker image:
+
+   ```bash
+   cd backend
+   docker build -t backend-image .
+   ```
+
+Run the Docker container:
+
+   ```bash
+   docker run -p 5001:5001 backend-image
+   ```
+
+3. **Build and Run Frontend Docker Image**:
+
+Navigate to the frontend directory and build the Docker image:
+
+   ```bash
+   cd frontend
+   docker build -t frontend-image .
+   ```
+
+Run the Docker container:
+
+   ```bash
+   docker run -p 3000:3000 frontend-image
+   ```
+
+By following these steps, you can build and run Docker images for both the frontend and backend of the Talent-Sphere application, running on ports 3000 and 5001 respectively.
+
+### Summary:
+
+- Added sections to the README to explain how to build and run Docker images for the frontend and backend.
+- Mentioned updating the `.env` files before running the images.
+- Provided detailed steps for building and running the Docker images.
