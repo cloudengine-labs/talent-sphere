@@ -25,6 +25,9 @@ RUN npm install -g serve
 # Copy the build files from the previous stage
 COPY --from=build /app/build /app/build
 
+# Copy the .env file
+COPY .env .env
+
 # Expose the port the app runs on
 EXPOSE 3000
 
