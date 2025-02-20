@@ -32,7 +32,7 @@ Talent-Sphere is a frontend application designed for managing employee informati
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/your-username/talent-sphere.git
+   git clone https://github.com/cloudengine-labs/talent-sphere.git
    cd talent-sphere
    ```
 
